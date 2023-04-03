@@ -24,7 +24,7 @@ import com.google.android.gms.maps.model.LatLng
 import com.google.maps.android.compose.*
 
 
-/*Google Maps*/
+
 @Preview(showBackground = true)
 @Composable
 fun MapScreenPreview() {
@@ -37,7 +37,7 @@ fun MapScreenPreview() {
         testingText = ""
     )
 }
-
+/*Google Maps*/
 @Composable
 fun MapScreen(
     addMarker: (LatLng) -> Unit,
