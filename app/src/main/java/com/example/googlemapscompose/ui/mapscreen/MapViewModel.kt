@@ -1,6 +1,5 @@
 package com.example.googlemapscompose.ui.mapscreen
 
-import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -13,8 +12,8 @@ class MapViewModel(
     private val repository: MapsRepository
 ) : ViewModel() {
 
-    val _address  = MutableLiveData<String>()
-    val address:LiveData<String> = _address
+    private val addressLD  = MutableLiveData<String>()
+    val address:LiveData<String> = addressLD
 
 
     private val viewModelState = MutableStateFlow(MapViewModelState())
@@ -25,7 +24,7 @@ class MapViewModel(
     fun addMarker(latLng: LatLng) {
         val markers = viewModelState.value.markers
         markers.add(latLng)
-        _address.value = repository.getAddress(latLng)
+        addressLD.value = repository.getAddress(latLng)
         viewModelState.update {
             it.copy(
                 markers = markers,
